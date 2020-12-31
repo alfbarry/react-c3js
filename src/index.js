@@ -62,7 +62,11 @@ class C3Chart extends React.Component {
 
   destroyChart() {
     try {
-      this.chart = this.chart.destroy();
+      setTimeout(() => {
+        this.chart.destroy();
+        this.chart = null;
+      }, 1000);
+      // this.chart = this.chart.destroy();
     } catch (err) {
       throw new Error('Internal C3 error', err);
     }
